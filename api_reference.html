@@ -1,0 +1,768 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API Reference &#8212; bambi 0.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Bayesian Workflow Example (Strack RRR Analysis Replication)" href="notebooks/Strack_RRR_re_analysis.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>This reference provides detailed documentation for all modules, classes, and
+methods in the current release of Bambi.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-bambi.diagnostics">
+<span id="bambi-diagnostics"></span><h2><a class="reference internal" href="#module-bambi.diagnostics" title="bambi.diagnostics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bambi.diagnostics</span></code></a><a class="headerlink" href="#module-bambi.diagnostics" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="bambi.diagnostics.autocorr">
+<code class="descclassname">bambi.diagnostics.</code><code class="descname">autocorr</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/diagnostics.html#autocorr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.diagnostics.autocorr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute autocorrelation using FFT for every lag for the input array
+<a class="reference external" href="https://en.wikipedia.org/wiki/Autocorrelation#Efficient_computation">https://en.wikipedia.org/wiki/Autocorrelation#Efficient_computation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>array-like</em>) – An array containing MCMC samples.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An array of the same size as the input array.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambi.diagnostics.autocov">
+<code class="descclassname">bambi.diagnostics.</code><code class="descname">autocov</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/diagnostics.html#autocov"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.diagnostics.autocov" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute autocovariance estimates for every lag for the input array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>array-like</em>) – An array containing MCMC samples.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An array of the same size as the input array.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambi.diagnostics.effective_n">
+<code class="descclassname">bambi.diagnostics.</code><code class="descname">effective_n</code><span class="sig-paren">(</span><em>mcmc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/diagnostics.html#effective_n"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.diagnostics.effective_n" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mcmc</strong> (<a class="reference internal" href="#bambi.results.MCMCResults" title="bambi.results.MCMCResults"><em>MCMCResults</em></a>) – Pre-sliced MCMC samples to compute diagnostics for.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="bambi.diagnostics.gelman_rubin">
+<code class="descclassname">bambi.diagnostics.</code><code class="descname">gelman_rubin</code><span class="sig-paren">(</span><em>mcmc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/diagnostics.html#gelman_rubin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.diagnostics.gelman_rubin" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mcmc</strong> (<a class="reference internal" href="#bambi.results.MCMCResults" title="bambi.results.MCMCResults"><em>MCMCResults</em></a>) – Pre-sliced MCMC samples to compute diagnostics for.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-bambi.models">
+<span id="bambi-models"></span><h2><a class="reference internal" href="#module-bambi.models" title="bambi.models"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bambi.models</span></code></a><a class="headerlink" href="#module-bambi.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bambi.models.Model">
+<em class="property">class </em><code class="descclassname">bambi.models.</code><code class="descname">Model</code><span class="sig-paren">(</span><em>data=None</em>, <em>default_priors=None</em>, <em>auto_scale=True</em>, <em>dropna=False</em>, <em>taylor=None</em>, <em>noncentered=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.Model" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="bambi.models.Model.data">
+<code class="descname">data</code><a class="headerlink" href="#bambi.models.Model.data" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>DataFrame, str</em> – the dataset to use. Either a pandas
+DataFrame, or the name of the file containing the data, which
+will be passed to pd.read_csv().</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.default_priors">
+<code class="descname">default_priors</code><a class="headerlink" href="#bambi.models.Model.default_priors" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict, str</em> – An optional specification of the
+default priors to use for all model terms. Either a dict
+containing named distributions, families, and terms (see the
+documentation in priors.PriorFactory for details), or the name
+of a JSON file containing the same information.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.auto_scale">
+<code class="descname">auto_scale</code><a class="headerlink" href="#bambi.models.Model.auto_scale" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – If True (default), priors are automatically rescaled
+to the data (to be weakly informative) any time default priors are
+used. Note that any priors explicitly set by the user will always
+take precedence over default priors.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.dropna">
+<code class="descname">dropna</code><a class="headerlink" href="#bambi.models.Model.dropna" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – When True, rows with any missing values in either the
+predictors or outcome are automatically dropped from the dataset in
+a listwise manner.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.taylor">
+<code class="descname">taylor</code><a class="headerlink" href="#bambi.models.Model.taylor" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – Order of Taylor expansion to use in approximate variance
+when constructing the default priors. Should be between 1 and 13.
+Lower values are less accurate, tending to undershoot the correct
+prior width, but are faster to compute and more stable. Odd-
+numbered values tend to work better. Defaults to 5 for Normal
+models and 1 for non-Normal models. Values higher than the defaults
+are generally not recommended as they can be unstable.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.noncentered">
+<code class="descname">noncentered</code><a class="headerlink" href="#bambi.models.Model.noncentered" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – If True (default), uses a non-centered
+parameterization for normal hyperpriors on grouped parameters.
+If False, naive (centered) parameterization is used.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.models.Model.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>fixed=None</em>, <em>random=None</em>, <em>priors=None</em>, <em>family='gaussian'</em>, <em>link=None</em>, <em>categorical=None</em>, <em>append=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#Model.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.Model.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds one or more terms to the model via an R-like formula syntax.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fixed</strong> (<em>str</em>) – Optional formula specification of fixed effects.</li>
+<li><strong>random</strong> (<em>list</em>) – Optional list-based specification of random effects.</li>
+<li><strong>priors</strong> (<em>dict</em>) – Optional specification of priors for one or more
+terms. A dict where the keys are the names of terms in the
+model, and the values are either instances of class Prior or
+ints, floats, or strings that specify the width of the priors
+on a standardized scale.</li>
+<li><strong>family</strong> (<em>str</em><em>, </em><a class="reference internal" href="#bambi.priors.Family" title="bambi.priors.Family"><em>Family</em></a>) – A specification of the model family
+(analogous to the family object in R). Either a string, or an
+instance of class priors.Family. If a string is passed, a
+family with the corresponding name must be defined in the
+defaults loaded at Model initialization. Valid pre-defined
+families are ‘gaussian’, ‘bernoulli’, ‘poisson’, and ‘t’.</li>
+<li><strong>link</strong> (<em>str</em>) – The model link function to use. Can be either a string
+(must be one of the options defined in the current backend;
+typically this will include at least ‘identity’, ‘logit’,
+‘inverse’, and ‘log’), or a callable that takes a 1D ndarray
+or theano tensor as the sole argument and returns one with
+the same shape.</li>
+<li><strong>categorical</strong> (<em>str</em><em>, </em><em>list</em>) – The names of any variables to treat as
+categorical. Can be either a single variable name, or a list
+of names. If categorical is None, the data type of the columns
+in the DataFrame will be used to infer handling. In cases where
+numeric columns are to be treated as categoricals (e.g., random
+factors coded as numerical IDs), explicitly passing variable
+names via this argument is recommended.</li>
+<li><strong>append</strong> (<em>bool</em>) – If True, terms are appended to the existing model
+rather than replacing any existing terms. This allows
+formula-based specification of the model in stages.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.models.Model.build">
+<code class="descname">build</code><span class="sig-paren">(</span><em>backend=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#Model.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.Model.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the model for sampling/fitting.</p>
+<p>Performs any steps that require access to all model terms (e.g., scaling priors
+on each term), then calls the BackEnd’s build() method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>backend</strong> (<em>str</em>) – The name of the backend to use for model fitting.
+Currently, ‘pymc’ and ‘stan’ are supported. If None, assume
+that fit() has already been called (possibly without building),
+and look in self._backend_name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.models.Model.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>fixed=None</em>, <em>random=None</em>, <em>priors=None</em>, <em>family='gaussian'</em>, <em>link=None</em>, <em>run=True</em>, <em>categorical=None</em>, <em>backend=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#Model.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.Model.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the model using the specified BackEnd.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fixed</strong> (<em>str</em>) – Optional formula specification of fixed effects.</li>
+<li><strong>random</strong> (<em>list</em>) – Optional list-based specification of random effects.</li>
+<li><strong>priors</strong> (<em>dict</em>) – Optional specification of priors for one or more
+terms. A dict where the keys are the names of terms in the
+model, and the values are either instances of class Prior or
+ints, floats, or strings that specify the width of the priors
+on a standardized scale.</li>
+<li><strong>family</strong> (<em>str</em><em>, </em><a class="reference internal" href="#bambi.priors.Family" title="bambi.priors.Family"><em>Family</em></a>) – A specification of the model family
+(analogous to the family object in R). Either a string, or an
+instance of class priors.Family. If a string is passed, a
+family with the corresponding name must be defined in the
+defaults loaded at Model initialization. Valid pre-defined
+families are ‘gaussian’, ‘bernoulli’, ‘poisson’, and ‘t’.</li>
+<li><strong>link</strong> (<em>str</em>) – The model link function to use. Can be either a string
+(must be one of the options defined in the current backend;
+typically this will include at least ‘identity’, ‘logit’,
+‘inverse’, and ‘log’), or a callable that takes a 1D ndarray
+or theano tensor as the sole argument and returns one with
+the same shape.</li>
+<li><strong>run</strong> (<em>bool</em>) – Whether or not to immediately begin fitting the model
+once any set up of passed arguments is complete.</li>
+<li><strong>categorical</strong> (<em>str</em><em>, </em><em>list</em>) – The names of any variables to treat as
+categorical. Can be either a single variable name, or a list
+of names. If categorical is None, the data type of the columns
+in the DataFrame will be used to infer handling. In cases where
+numeric columns are to be treated as categoricals (e.g., random
+factors coded as numerical IDs), explicitly passing variable
+names via this argument is recommended.</li>
+<li><strong>backend</strong> (<em>str</em>) – The name of the BackEnd to use. Currently only
+‘pymc’ and ‘stan’ backends are supported. Defaults to PyMC3.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.fixed_terms">
+<code class="descname">fixed_terms</code><a class="headerlink" href="#bambi.models.Model.fixed_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dict of all and only fixed effects in model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.random_terms">
+<code class="descname">random_terms</code><a class="headerlink" href="#bambi.models.Model.random_terms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dict of all and only random effects in model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.models.Model.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#Model.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.Model.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset list of terms and y-variable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.models.Model.set_priors">
+<code class="descname">set_priors</code><span class="sig-paren">(</span><em>priors=None</em>, <em>fixed=None</em>, <em>random=None</em>, <em>match_derived_names=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#Model.set_priors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.Model.set_priors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set priors for one or more existing terms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>priors</strong> (<em>dict</em>) – Dict of priors to update. Keys are names of terms
+to update; values are the new priors (either a Prior instance,
+or an int or float that scales the default priors). Note that
+a tuple can be passed as the key, in which case the same prior
+will be applied to all terms named in the tuple.</li>
+<li><strong>fixed</strong> (<a class="reference internal" href="#bambi.priors.Prior" title="bambi.priors.Prior"><em>Prior</em></a><em>, </em><em>int</em><em>, </em><em>float</em><em>, </em><em>str</em>) – a prior specification to apply to
+all fixed terms currently included in the model.</li>
+<li><strong>random</strong> (<a class="reference internal" href="#bambi.priors.Prior" title="bambi.priors.Prior"><em>Prior</em></a><em>, </em><em>int</em><em>, </em><em>float</em><em>, </em><em>str</em>) – a prior specification to apply to
+all random terms currently included in the model.</li>
+<li><strong>match_derived_names</strong> (<em>bool</em>) – if True, the specified prior(s) will be
+applied not only to terms that match the keyword exactly,
+but to the levels of random effects that were derived from
+the original specification with the passed name. For example,
+<cite>priors={‘condition|subject’:0.5}</cite> would apply the prior
+to the terms with names ‘1|subject’, ‘condition[T.1]|subject’,
+and so on. If False, an exact match is required for the
+prior to be applied.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Model.term_names">
+<code class="descname">term_names</code><a class="headerlink" href="#bambi.models.Model.term_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return names of all terms in order of addition to model.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bambi.models.RandomTerm">
+<em class="property">class </em><code class="descclassname">bambi.models.</code><code class="descname">RandomTerm</code><span class="sig-paren">(</span><em>name</em>, <em>data</em>, <em>predictor</em>, <em>grouper</em>, <em>categorical=False</em>, <em>prior=None</em>, <em>constant=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#RandomTerm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.RandomTerm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="bambi.models.Term">
+<em class="property">class </em><code class="descclassname">bambi.models.</code><code class="descname">Term</code><span class="sig-paren">(</span><em>name</em>, <em>data</em>, <em>categorical=False</em>, <em>prior=None</em>, <em>constant=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/models.html#Term"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.models.Term" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of a single (fixed) model term.</p>
+<dl class="attribute">
+<dt id="bambi.models.Term.name">
+<code class="descname">name</code><a class="headerlink" href="#bambi.models.Term.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Name of the term.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Term.data">
+<code class="descname">data</code><a class="headerlink" href="#bambi.models.Term.data" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>DataFrame, Series, ndarray</em> – The term values.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Term.categorical">
+<code class="descname">categorical</code><a class="headerlink" href="#bambi.models.Term.categorical" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – If True, the source variable is interpreted as
+nominal/categorical. If False, the source variable is treated
+as continuous.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Term.prior">
+<code class="descname">prior</code><a class="headerlink" href="#bambi.models.Term.prior" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Prior</em> – A specification of the prior(s) to use. An instance
+of class priors.Prior.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.models.Term.constant">
+<code class="descname">constant</code><a class="headerlink" href="#bambi.models.Term.constant" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – indicates whether the term levels collectively
+act as a constant, in which case the term is treated as an
+intercept for prior distribution purposes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-bambi.priors">
+<span id="bambi-priors"></span><h2><a class="reference internal" href="#module-bambi.priors" title="bambi.priors"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bambi.priors</span></code></a><a class="headerlink" href="#module-bambi.priors" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bambi.priors.Family">
+<em class="property">class </em><code class="descclassname">bambi.priors.</code><code class="descname">Family</code><span class="sig-paren">(</span><em>name</em>, <em>prior</em>, <em>link</em>, <em>parent</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/priors.html#Family"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.priors.Family" title="Permalink to this definition">¶</a></dt>
+<dd><p>A specification of model family.</p>
+<dl class="attribute">
+<dt id="bambi.priors.Family.name">
+<code class="descname">name</code><a class="headerlink" href="#bambi.priors.Family.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Family name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.priors.Family.prior">
+<code class="descname">prior</code><a class="headerlink" href="#bambi.priors.Family.prior" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Prior</em> – A Prior instance specifying the model likelihood prior.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.priors.Family.link">
+<code class="descname">link</code><a class="headerlink" href="#bambi.priors.Family.link" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The name of the link function transforming the linear
+model prediction to a parameter of the likelihood.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.priors.Family.parent">
+<code class="descname">parent</code><a class="headerlink" href="#bambi.priors.Family.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The name of the prior parameter to set to the link-
+transformed predicted outcome (e.g., mu, p, etc.).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bambi.priors.Prior">
+<em class="property">class </em><code class="descclassname">bambi.priors.</code><code class="descname">Prior</code><span class="sig-paren">(</span><em>name</em>, <em>scale=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/priors.html#Prior"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.priors.Prior" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract specification of a term prior.</p>
+<dl class="attribute">
+<dt id="bambi.priors.Prior.name">
+<code class="descname">name</code><a class="headerlink" href="#bambi.priors.Prior.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – Name of prior distribution (e.g., Normal, Bernoulli, etc.)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.priors.Prior.kwargs">
+<code class="descname">kwargs</code><a class="headerlink" href="#bambi.priors.Prior.kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Optional keywords specifying the parameters of the
+named distribution.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.priors.Prior.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/priors.html#Prior.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.priors.Prior.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the model arguments with additional arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>kwargs</strong> (<em>dict</em>) – Optional keyword arguments to add to prior args.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bambi.priors.PriorFactory">
+<em class="property">class </em><code class="descclassname">bambi.priors.</code><code class="descname">PriorFactory</code><span class="sig-paren">(</span><em>defaults=None</em>, <em>dists=None</em>, <em>terms=None</em>, <em>families=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/priors.html#PriorFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.priors.PriorFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>An object that supports specification and easy retrieval of default priors.</p>
+<dl class="attribute">
+<dt id="bambi.priors.PriorFactory.defaults">
+<code class="descname">defaults</code><a class="headerlink" href="#bambi.priors.PriorFactory.defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str, dict</em> – Optional base configuration containing default
+priors for distribution, families, and term types. If a string,
+the name of a JSON file containing the config. If a dict, must
+contain keys for ‘dists’, ‘terms’, and ‘families’; see the built-in
+JSON configuration for an example. If None, a built-in set of
+priors will be used as defaults.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.priors.PriorFactory.dists">
+<code class="descname">dists</code><a class="headerlink" href="#bambi.priors.PriorFactory.dists" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Optional specification of named distributions to use
+as priors. Each key gives the name of a newly defined distribution;
+values are two-element lists, where the first element is the name
+of the built-in distribution to use (‘Normal’, ‘Cauchy’, etc.),
+and the second element is a dictionary of parameters on that
+distribution (e.g., {‘mu’: 0, ‘sd’: 10}). Priors can be nested
+to arbitrary depths by replacing any parameter with another prior
+specification.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.priors.PriorFactory.terms">
+<code class="descname">terms</code><a class="headerlink" href="#bambi.priors.PriorFactory.terms" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Optional specification of default priors for different
+model term types. Valid keys are ‘intercept’, ‘fixed’, or ‘random’.
+Values are either strings preprended by a #, in which case they
+are interpreted as pointers to distributions named in the dists
+dictionary, or key -&gt; value specifications in the same format as
+elements in the dists dictionary.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.priors.PriorFactory.families">
+<code class="descname">families</code><a class="headerlink" href="#bambi.priors.PriorFactory.families" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>dict</em> – Optional specification of default priors for named
+family objects. Keys are family names, and values are dicts
+containing mandatory keys for ‘dist’, ‘link’, and ‘parent’.</p>
+</dd></dl>
+
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dists</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;my_dist&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Normal&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;mu&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;sd&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pf</span> <span class="o">=</span> <span class="n">PriorFactory</span><span class="p">(</span><span class="n">dists</span><span class="o">=</span><span class="n">dists</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">families</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;normalish&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;dist&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="p">{</span><span class="n">sd</span><span class="p">:</span> <span class="s1">&#39;#my_dist&#39;</span><span class="p">}],</span>
+<span class="gp">&gt;&gt;&gt; </span>                            <span class="n">link</span><span class="p">:</span><span class="s1">&#39;identity&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="s1">&#39;mu&#39;</span><span class="p">}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pf</span> <span class="o">=</span> <span class="n">PriorFactory</span><span class="p">(</span><span class="n">dists</span><span class="o">=</span><span class="n">dists</span><span class="p">,</span> <span class="n">families</span><span class="o">=</span><span class="n">families</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="bambi.priors.PriorFactory.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>dist=None</em>, <em>term=None</em>, <em>family=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/priors.html#PriorFactory.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.priors.PriorFactory.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve default prior for a named distribution, term type, or family.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dist</strong> (<em>str</em>) – Name of desired distribution. Note that the name is
+the key in the defaults dictionary, not the name of the
+Distribution object used to construct the prior.</li>
+<li><strong>term</strong> (<em>str</em>) – The type of term family to retrieve defaults for.
+Must be one of ‘intercept’, ‘fixed’, or ‘random’.</li>
+<li><strong>family</strong> (<em>str</em>) – The name of the Family to retrieve. Must be a value
+defined internally. In the default config, this is one of
+‘gaussian’, ‘bernoulli’, ‘poisson’, or ‘t’.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-bambi.results">
+<span id="bambi-results"></span><h2><a class="reference internal" href="#module-bambi.results" title="bambi.results"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bambi.results</span></code></a><a class="headerlink" href="#module-bambi.results" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="bambi.results.MCMCResults">
+<em class="property">class </em><code class="descclassname">bambi.results.</code><code class="descname">MCMCResults</code><span class="sig-paren">(</span><em>model</em>, <em>data</em>, <em>names</em>, <em>dims</em>, <em>levels</em>, <em>transformed_vars=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/results.html#MCMCResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.results.MCMCResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds sampler results; provides slicing, plotting, and summarization tools.</p>
+<dl class="attribute">
+<dt id="bambi.results.MCMCResults.model">
+<code class="descname">model</code><a class="headerlink" href="#bambi.results.MCMCResults.model" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Model</em> – a bambi Model instance specifying the model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.results.MCMCResults.data">
+<code class="descname">data</code><a class="headerlink" href="#bambi.results.MCMCResults.data" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>array-like</em> – Raw storage of MCMC samples in array with
+dimensions 0, 1, 2 = samples, chains, variables</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.results.MCMCResults.names">
+<code class="descname">names</code><a class="headerlink" href="#bambi.results.MCMCResults.names" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list</em> – Names of all Terms.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.results.MCMCResults.dims">
+<code class="descname">dims</code><a class="headerlink" href="#bambi.results.MCMCResults.dims" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list</em> – Numbers of levels for all Terms.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.results.MCMCResults.levels">
+<code class="descname">levels</code><a class="headerlink" href="#bambi.results.MCMCResults.levels" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list</em> – Names of all levels for all Terms.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.results.MCMCResults.transformed">
+<code class="descname">transformed</code><a class="headerlink" href="#bambi.results.MCMCResults.transformed" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list</em> – Optional list of variable names to treat as
+transformed–and hence, to exclude from the output by default.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.results.MCMCResults.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><em>varnames=None</em>, <em>ranefs=True</em>, <em>transformed=False</em>, <em>combined=False</em>, <em>hist=False</em>, <em>bins=20</em>, <em>kind='trace'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/results.html#MCMCResults.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.results.MCMCResults.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots posterior distributions and sample traces.</p>
+<p>Basically a wrapperfor pm.traceplot() plus some niceties, based partly on code
+from: <a class="reference external" href="https://pymc-devs.github.io/pymc3/notebooks/GLM-model-selection.html">https://pymc-devs.github.io/pymc3/notebooks/GLM-model-selection.html</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>varnames</strong> (<em>list</em>) – List of variable names to plot. If None, all
+eligible variables are plotted.</li>
+<li><strong>ranefs</strong> (<em>bool</em>) – If True (default), shows trace plots for
+individual random effects.</li>
+<li><strong>transformed</strong> (<em>bool</em>) – If False (default), excludes internally
+transformed variables from plotting.</li>
+<li><strong>combined</strong> (<em>bool</em>) – If True, concatenates all chains into one before
+plotting. If False (default), plots separately lines for
+each chain (on the same axes).</li>
+<li><strong>hist</strong> (<em>bool</em>) – If True, plots a histogram for each fixed effect,
+in addition to the kde plot. To prevent visual clutter,
+histograms are never plotted for random effects.</li>
+<li><strong>bins</strong> (<em>int</em>) – If hist is True, the number of bins in the histogram.
+Ignored if hist is False.</li>
+<li><strong>kind</strong> (<em>str</em>) – Either ‘trace’ (default) or ‘priors’. If ‘priors’,
+this just internally calls Model.plot()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.results.MCMCResults.summary">
+<code class="descname">summary</code><span class="sig-paren">(</span><em>varnames=None, ranefs=False, transformed=False, hpd=0.95, quantiles=None, diagnostics=['effective_n', 'gelman_rubin']</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/results.html#MCMCResults.summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.results.MCMCResults.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a DataFrame of summary/diagnostic statistics for the parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>varnames</strong> (<em>list</em>) – List of variable names to include; if None
+(default), all eligible variables are included.</li>
+<li><strong>ranefs</strong> (<em>bool</em>) – Whether or not to include random effects in the
+summary. Default is False.</li>
+<li><strong>transformed</strong> (<em>bool</em>) – Whether or not to include internally
+transformed variables in the summary. Default is False.</li>
+<li><strong>hpd</strong> (<em>float</em><em>, </em><em>between 0 and 1</em>) – Show Highest Posterior Density (HPD)
+intervals with specified width/proportion for all parameters.
+If None, HPD intervals are suppressed.</li>
+<li><strong>quantiles</strong> (<em>float</em><em>, </em><em>list</em>) – Show
+specified quantiles of the marginal posterior distributions for
+all parameters. If list, must be a list of floats between 0 and 1. If
+None (default), no quantiles are shown.</li>
+<li><strong>diagnostics</strong> (<em>list</em>) – List of functions to use to compute convergence
+diagnostics for all parameters. Each element can be either a
+callable or a string giving the name of a function in the
+diagnostics module. Valid strings are ‘gelman_rubin’ and
+‘effective_n’. Functions must accept a MCMCResults object as
+the sole input, and return a DataFrame with one labeled row per
+parameter. If None, no convergence diagnostics are computed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="bambi.results.MCMCResults.to_df">
+<code class="descname">to_df</code><span class="sig-paren">(</span><em>varnames=None</em>, <em>ranefs=False</em>, <em>transformed=False</em>, <em>chains=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/results.html#MCMCResults.to_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.results.MCMCResults.to_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the MCMC samples in a nice, neat pandas DataFrame with all MCMC chains
+concatenated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>varnames</strong> (<em>list</em>) – List of variable names to include; if None
+(default), all eligible variables are included.</li>
+<li><strong>ranefs</strong> (<em>bool</em>) – Whether or not to include random effects in the
+returned DataFrame. Default is True.</li>
+<li><strong>transformed</strong> (<em>bool</em>) – Whether or not to include internally
+transformed variables in the result. Default is False.</li>
+<li><strong>chains</strong> (<em>int</em><em>, </em><em>list</em>) – Index, or list of indexes, of chains to
+concatenate. E.g., [1, 3] would concatenate the first and
+third chains, and ignore any others. If None (default),
+concatenates all available chains.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="bambi.results.PyMC3ADVIResults">
+<em class="property">class </em><code class="descclassname">bambi.results.</code><code class="descname">PyMC3ADVIResults</code><span class="sig-paren">(</span><em>model</em>, <em>params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bambi/results.html#PyMC3ADVIResults"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bambi.results.PyMC3ADVIResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds PyMC3 ADVI results and provides plotting and summarization tools.</p>
+<dl class="attribute">
+<dt id="bambi.results.PyMC3ADVIResults.model">
+<code class="descname">model</code><a class="headerlink" href="#bambi.results.PyMC3ADVIResults.model" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Model</em> – A bambi Model instance specifying the model.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="bambi.results.PyMC3ADVIResults.params">
+<code class="descname">params</code><a class="headerlink" href="#bambi.results.PyMC3ADVIResults.params" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>MultiTrace</em> – ADVI parameters returned by PyMC3.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">bambi</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-bambi.diagnostics"><code class="docutils literal notranslate"><span class="pre">bambi.diagnostics</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bambi.models"><code class="docutils literal notranslate"><span class="pre">bambi.models</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bambi.priors"><code class="docutils literal notranslate"><span class="pre">bambi.priors</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bambi.results"><code class="docutils literal notranslate"><span class="pre">bambi.results</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="notebooks/Strack_RRR_re_analysis.html" title="previous chapter">Bayesian Workflow Example (Strack RRR Analysis Replication)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, The developers of Bambi.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.11</a>
+      
+      |
+      <a href="_sources/api_reference.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
